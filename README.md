@@ -3,8 +3,8 @@
 
 # rugger
 
-:new\_zealand: :ireland: :wales: :england: :south\_africa: :australia:
-:scotland: :fiji:
+:new\_zealand: :ireland: 🏴󠁧󠁢󠁷󠁬󠁳󠁿 🏴󠁧󠁢󠁥󠁮󠁧󠁿 :south\_africa: :australia:
+🏴󠁧󠁢󠁳󠁣󠁴󠁿 :fiji:
 
 (WIP) rugger is a rrrrugby package :rugby\_football:. You can see the
 current world rankings with `get_rankings()` and calculate the impact on
