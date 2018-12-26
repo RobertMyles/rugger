@@ -1,0 +1,15 @@
+Package: rugger
+Title: All your R rugby needs in one fantabulous package
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Robert",
+           family = "McDonnell",
+           role = c("aut", "cre"),
+           email = "robertmylesmcdonnell@gmail.com")
+Description: WIP
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    testthat
+RoxygenNote: 6.1.1
