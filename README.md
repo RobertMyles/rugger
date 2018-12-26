@@ -4,7 +4,7 @@
 # rugger
 
 :new\_zealand: :ireland: 🏴󠁧󠁢󠁷󠁬󠁳󠁿 🏴󠁧󠁢󠁥󠁮󠁧󠁿 :south\_africa: :australia:
-🏴󠁧󠁢󠁳󠁣󠁴󠁿 :fiji:
+🏴󠁧󠁢󠁳󠁣󠁴󠁿 :fiji: \[1\]
 
 (WIP) rugger is a rrrrugby package :rugby\_football:. You can see the
 current world rankings with `get_rankings()` and calculate the impact on
@@ -29,3 +29,8 @@ All of the data acessed by this package is obviously for
 informational/educational use. It belongs to World Rugby. The algorithm
 that calculates the rankings also belongs to World Rugby, you can read
 about it [here](https://www.world.rugby/rankings/explanation).
+
+1.  Black flags?\! They’re Github’s fault. The flags represent the
+    rankings as of the tp 8 at the end of 2018 – New Zealand, Ireland,
+    Wales, England, South Africa, Australia, Scotland and Fiji. You can
+    see them in R with `emo::ji("wales")`, for example.

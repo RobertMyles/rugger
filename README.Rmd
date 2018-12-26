@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 # rugger  
 
-:new_zealand: :ireland: `r emo::ji("wales")` `r emo::ji("england")` :south_africa: :australia: `r emo::ji("scotland")` :fiji:
+:new_zealand: :ireland: `r emo::ji("wales")` `r emo::ji("england")` :south_africa: :australia: `r emo::ji("scotland")` :fiji: ^[Black flags?! They're Github's fault. The flags represent the rankings as of the tp 8 at the end of 2018 -- New Zealand, Ireland, Wales, England, South Africa, Australia, Scotland and Fiji. You can see them in R with `emo::ji("wales")`, for example.]
 
 (WIP) rugger is a rrrrugby package :rugby_football:. You can see the current world rankings with `get_rankings()` and calculate the impact on the rankings of a hypothetical match with `calculate_rank()`. Right now it gets some data from [World Rugby]() and does some little calculations, maybe in the future it'll have info from [ESPN](http://stats.espnscrum.com/statsguru/rugby/stats/index.html) and [Rugby Data](http://www.rugbydata.com). Let's see. If you're interested, feel free to fork and submit a PR. 
 
