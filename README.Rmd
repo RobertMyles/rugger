@@ -1,0 +1,30 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# rugger  
+
+:new_zealand: :ireland: :wales: :england: :south_africa: :australia: :scotland: :fiji:
+
+(WIP) rugger is a rrrrugby package :rugby_football:. You can see the current world rankings with `get_rankings()` and calculate the impact on the rankings of a hypothetical match with `calculate_rank()`. Right now it gets some data from [World Rugby]() and does some little calculations, maybe in the future it'll have info from [ESPN](http://stats.espnscrum.com/statsguru/rugby/stats/index.html) and [Rugby Data](http://www.rugbydata.com). Let's see. If you're interested, feel free to fork and submit a PR. 
+
+## Installation
+
+You can install rugger with:
+
+``` r
+remotes::install_github("RobertMyles/rugger")
+```
+
+## Data etc.
+All of the data acessed by this package is obviously for informational/educational use. It belongs to World Rugby. The algorithm that calculates the rankings also belongs to World Rugby, you can read about it [here](https://www.world.rugby/rankings/explanation). 
