@@ -30,20 +30,20 @@ remotes::install_github("RobertMyles/rugger")
 
 You can see the current world rankings with `get_rankings()`:
 
-```{r eval = F}
+```{r}
 library(rugger)
 get_rankings()
 ```
 
 Hmmm, what would happen if New Zealand played Ireland tomorrow, and Ireland won by 5 points?
-```{r eval = F}
+```{r}
 calculate_rank("New Zealand", "Ireland", score = c(15, 20))
 ```
 
 Yay, we'd jump into first place (sorry, biased!).  
 
 Let's have a look at the history between England and Scotland, the first two teams to play the game:
-```{r eval = F}
+```{r}
 get_team_records("England", "Scotland")
 ```
 
@@ -51,7 +51,7 @@ England winning almost 62% of the matches there.
 
 I wonder which player has scored most tries in rugby?
 
-```{r eval = F}
+```{r}
 library(dplyr)
 
 get_team_records(type = "player") %>% 
