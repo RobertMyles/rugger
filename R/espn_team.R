@@ -10,6 +10,7 @@
 #' @importFrom dplyr pull
 #' @importFrom tidyr separate
 #' @importFrom stringr str_to_lower
+#' @importFrom glue glue
 #' @title Get Match Data for Rugby Teams
 #' @description Download data from ESPN's statsguru service. Data includes information
 #' on various teams, win ratios, points scored etc.

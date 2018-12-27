@@ -20,13 +20,10 @@ remotes::install_github("RobertMyles/rugger")
 
 ## Usage
 
-``` r
-library(rugger)
-```
-
 You can see the current world rankings with `get_rankings()`:
 
 ``` r
+library(rugger)
 get_rankings()
 ```
 
@@ -51,8 +48,10 @@ England winning almost 62% of the matches there.
 I wonder which player has scored most tries in rugby?
 
 ``` r
+library(dplyr)
+
 get_team_records(type = "player") %>% 
-  dplyr::arrange(dplyr::desc(points))
+  arrange(desc(points))
 ```
 
 The sublime Dan Carter\!

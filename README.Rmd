@@ -22,19 +22,16 @@ rugger is a rrrrugby package :rugby_football:. Get stats on teams, players, rank
 
 You can install rugger with:
 
-``` r
+``` {r eval = FALSE}
 remotes::install_github("RobertMyles/rugger")
 ```
 
 ## Usage
 
-```{r eval = FALSE}
-library(rugger)
-``` 
-
 You can see the current world rankings with `get_rankings()`:
 
 ```{r eval = F}
+library(rugger)
 get_rankings()
 ```
 
@@ -46,7 +43,7 @@ calculate_rank("New Zealand", "Ireland", score = c(15, 20))
 Yay, we'd jump into first place (sorry, biased!).  
 
 Let's have a look at the history between England and Scotland, the first two teams to play the game:
-```{r eval = FALSE}
+```{r eval = F}
 get_team_records("England", "Scotland")
 ```
 
@@ -54,9 +51,11 @@ England winning almost 62% of the matches there.
 
 I wonder which player has scored most tries in rugby?
 
-```{r eval = FALSE}
+```{r eval = F}
+library(dplyr)
+
 get_team_records(type = "player") %>% 
-  dplyr::arrange(dplyr::desc(points))
+  arrange(desc(points))
 ```
 
 The sublime Dan Carter!

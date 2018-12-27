@@ -4,12 +4,20 @@
 \alias{get_team_records}
 \title{Get Match Data for Rugby Teams}
 \usage{
-get_team_records(country = NULL, all = TRUE)
+get_team_records(country = NULL, opposition = NULL, all = TRUE,
+  type = c("team", "player"))
 }
 \arguments{
-\item{country}{Name of country.}
+\item{country}{Name of home team.}
 
-\item{all}{\code{TRUE} by default, returns info on all teams.}
+\item{opposition}{If searching for results for the home team by specific opposition,
+the opposition team name can be used here.}
+
+\item{all}{\code{TRUE} by default, returns info on all teams, ignoring the previous
+parameters.}
+
+\item{type}{Defaults to "team". Other option is "player", which gets records for 
+individual players by countries selected.}
 }
 \description{
 Download data from ESPN's statsguru service. Data includes information
