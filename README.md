@@ -68,14 +68,6 @@ I wonder which player has scored most tries in rugby?
 
 ``` r
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 
 get_team_records(type = "player") %>% 
   arrange(desc(points))

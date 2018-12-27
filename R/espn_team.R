@@ -76,39 +76,40 @@ get_team_records <- function(country = NULL, opposition = NULL,
     
     return(df)
   } else if(!is.null(country)){
+    
     if(is.null(opposition)){
-    
-    ct <- stringr::str_to_lower(country)
-    
-    if(!ct %in% country_df$country) {
-      stop("Selected country not available.")
-    } else {
       
-      team <- dplyr::filter(country_df, country == ct) %>% 
-        dplyr::pull(number)
-      req <- paste0(url, glue::glue("team={team};template=results;type={tp}"))
+      ct <- stringr::str_to_lower(country)
       
-      df <- get_data(req)
-      
-      return(df)
+      if(!ct %in% country_df$country) {
+        stop("Selected country not available.")
+      } else {
+        
+        team <- dplyr::filter(country_df, country == ct) %>% 
+          dplyr::pull(number)
+        req <- paste0(url, glue::glue("team={team};template=results;type={tp}"))
+        
+        df <- get_data(req)
+        
+        return(df)
       }
-    }
-  } else {
-    op <- stringr::str_to_lower(opposition)
-    ct <- stringr::str_to_lower(country)
-    
-    if(!ct %in% country_df$country | !op %in% country_df$country) {
-      stop("Selected country not available.")
-    } else { 
-      team <- dplyr::filter(country_df, country %in% ct) %>% 
-        dplyr::pull(number)
-      opp <- dplyr::filter(country_df, country %in% op) %>% 
-        dplyr::pull(number)
-      req <- paste0(url, glue::glue("opposition={opp};team={team};template=results;type={tp}"))
+    } else {
+      op <- stringr::str_to_lower(opposition)
+      ct <- stringr::str_to_lower(country)
       
-      df <- get_data(req)
-      
-      return(df)
+      if(!ct %in% country_df$country | !op %in% country_df$country) {
+        stop("Selected country not available.")
+      } else { 
+        team <- dplyr::filter(country_df, country %in% ct) %>% 
+          dplyr::pull(number)
+        opp <- dplyr::filter(country_df, country %in% op) %>% 
+          dplyr::pull(number)
+        req <- paste0(url, glue::glue("opposition={opp};team={team};template=results;type={tp}"))
+        
+        df <- get_data(req)
+        
+        return(df)
+      }
     }
   }
 }

@@ -51,7 +51,7 @@ England winning almost 62% of the matches there.
 
 I wonder which player has scored most tries in rugby?
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(dplyr)
 
 get_team_records(type = "player") %>% 
