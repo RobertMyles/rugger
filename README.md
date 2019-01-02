@@ -60,6 +60,12 @@ two teams to play the game:
 
 ``` r
 get_team_records("England", "Scotland")
+#> # A tibble: 1 x 15
+#>   team  start_year end_year matches   won  lost  draw percent_won `for`
+#>   <chr>      <dbl>    <dbl>   <int> <int> <int> <int>       <dbl> <int>
+#> 1 Engl…       1871     2019     137    75    43    18        61.8  1636
+#> # ... with 6 more variables: against <int>, difference <int>, tries <int>,
+#> #   conversions <int>, penalties <int>, dropgoals <int>
 ```
 
 England winning almost 62% of the matches there.
