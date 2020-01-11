@@ -2,10 +2,35 @@
 #' @importFrom rlang !!
 #' @importFrom dplyr filter
 #' @importFrom dplyr select
+#' @importFrom dplyr group_by
+#' @importFrom dplyr slice
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr mutate
 #' @importFrom dplyr arrange
 #' @importFrom dplyr desc
+#' @importFrom dplyr rename
+#' @importFrom dplyr mutate_at
+#' @importFrom dplyr pull
+#' @importFrom dplyr full_join
+#' @importFrom jsonlite fromJSON
+#' @importFrom readr read_lines
+#' @importFrom tibble tibble
+#' @importFrom tibble as_tibble
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_node
+#' @importFrom rvest html_table
+#' @importFrom tidyr pivot_longer
+#' @importFrom tidyr pivot_wider
+#' @importFrom tidyr separate
+#' @importFrom tidyr unnest
+#' @importFrom stringr str_to_lower
+#' @importFrom stringr str_detect
+#' @importFrom stringr str_remove_all
+#' @importFrom stringr str_sort
+#' @importFrom glue glue
+#' @importFrom purrr safely
+#' @importFrom utils data
+#' @importFrom magrittr set_colnames
 #' @title Calculate Rankings 
 #' @description Calculate rankings based on a match between two teams, the score,
 #' home advantage and whether or not the match took place in a World Cup.
@@ -17,9 +42,8 @@
 #' @export
 calculate_rank <- function(home_team = NULL, away_team = NULL,
                            score = c(0, 0), world_cup = FALSE) {
-  
-  ht <- rlang::enquo(home_team)
-  at <- rlang::enquo(away_team)
+  ht <- enquo(home_team)
+  at <- enquo(away_team)
   home_score = score[1]
   away_score = score[2]
   
@@ -30,14 +54,14 @@ calculate_rank <- function(home_team = NULL, away_team = NULL,
   
   # data
   base <- get_rankings() %>% 
-    dplyr::filter(team %in% c(!! ht, !! at)) %>% 
-    dplyr::select(team, points, rank)
+    filter(team %in% c(!! ht, !! at)) %>% 
+    select(team, points, rank)
   
   if(nrow(base) < 2) stop("Have you chosen two valid teams? See `teams()` for 
                           valid selections.")
   
-  home <- base %>% dplyr::filter(team == !! ht)
-  away <- base %>% dplyr::filter(team == !! at)
+  home <- base %>% filter(team == !! ht)
+  away <- base %>% filter(team == !! at)
   
   # points gap
   gap <- (home$points + 3) - away$points
@@ -73,14 +97,14 @@ calculate_rank <- function(home_team = NULL, away_team = NULL,
   }
   
   home <- home %>% 
-    dplyr::mutate(points_exchanged = points_exchange)
+    mutate(points_exchanged = points_exchange)
   away <- away %>% 
-    dplyr::mutate(points_exchanged = points_away)
+    mutate(points_exchanged = points_away)
   
-  base <- dplyr::bind_rows(home, away) %>% 
-    dplyr::mutate(new_points = points + points_exchanged) %>% 
-    dplyr::arrange(dplyr::desc(new_points)) %>% 
-    dplyr::mutate(new_rank = 1:nrow(.))
+  base <- bind_rows(home, away) %>% 
+    mutate(new_points = points + points_exchanged) %>% 
+    arrange(desc(new_points)) %>% 
+    mutate(new_rank = 1:nrow(.))
   
   base
 }

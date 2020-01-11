@@ -4,8 +4,12 @@
 \alias{calculate_rank}
 \title{Calculate Rankings}
 \usage{
-calculate_rank(home_team = NULL, away_team = NULL, score = c(0, 0),
-  world_cup = FALSE)
+calculate_rank(
+  home_team = NULL,
+  away_team = NULL,
+  score = c(0, 0),
+  world_cup = FALSE
+)
 }
 \arguments{
 \item{home_team}{Character vector of home team name. For a list of valid teams,

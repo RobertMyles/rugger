@@ -4,8 +4,12 @@
 \alias{get_team_records}
 \title{Get Match Data for Rugby Teams}
 \usage{
-get_team_records(country = NULL, opposition = NULL, all = TRUE,
-  type = c("team", "player"))
+get_team_records(
+  country = NULL,
+  opposition = NULL,
+  all = TRUE,
+  type = c("team", "player")
+)
 }
 \arguments{
 \item{country}{Name of home team.}

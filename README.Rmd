@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 # rugger  
 
-:new_zealand: :ireland: `r emo::ji("wales")` `r emo::ji("england")` :south_africa: :australia: `r emo::ji("scotland")` :fiji: ^[Black flags?! They're Github's fault. The flags represent the rankings as of the tp 8 at the end of 2018 -- New Zealand, Ireland, Wales, England, South Africa, Australia, Scotland and Fiji. You can see them in R with `emo::ji("wales")`, for example.]
+:new_zealand: :ireland: `r emo::ji("wales")` `r emo::ji("england")` :south_africa: :australia: `r emo::ji("scotland")` :fiji: ^[Black flags?! They're Github's fault. The flags represent the rankings as of the end of 2018 -- New Zealand, Ireland, Wales, England, South Africa, Australia, Scotland and Fiji. You can see them in R with `emo::ji("wales")`, for example, using the emo package, available from [https://github.com/hadley/emo](https://github.com/hadley/emo).]
 
 rugger is a rrrrugby package :rugby_football:. Get stats on teams, players, rankings and calculate changes in the rankings for a certain match. 
 
@@ -25,6 +25,8 @@ You can install rugger with:
 ``` {r eval = FALSE}
 remotes::install_github("RobertMyles/rugger")
 ```
+
+I won't be burdening CRAN with it.  
 
 ## Usage
 
@@ -40,8 +42,6 @@ Hmmm, what would happen if New Zealand played Ireland tomorrow, and Ireland won 
 calculate_rank("New Zealand", "Ireland", score = c(15, 20))
 ```
 
-Yay, we'd jump into first place (sorry, biased!).  
-
 Let's have a look at the history between England and Scotland, the first two teams to play the game:
 ```{r}
 get_team_records("England", "Scotland")
@@ -55,13 +55,15 @@ I wonder which player has scored most tries in rugby?
 library(dplyr)
 
 get_team_records(type = "player") %>% 
-  arrange(desc(points))
+  arrange(desc(points)) %>% 
+  select(player, points)
 ```
 
 The sublime Dan Carter!
 
 ## Data etc.
 
-All of the data acessed by this package is obviously for informational/educational use. 
+All of the data acessed by this package is obviously for informational/educational use, and a big thanks to all for making it available. 
 
 It belongs to [World Rugby](https://www.world.rugby/rankings/mru) and [ESPN](http://stats.espnscrum.com/statsguru/rugby/stats/index.html). The algorithm that calculates the rankings also belongs to World Rugby, you can read about it [here](https://www.world.rugby/rankings/explanation). 
+Some of the data is also pulled from [Pick and Go](http://www.lassen.co.nz/pickandgo.php) by [Lassen Creative Technologies](http://www.datacleanse.co.nz/).  

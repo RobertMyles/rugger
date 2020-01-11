@@ -1,6 +1,3 @@
-#' @importFrom jsonlite fromJSON
-#' @importFrom readr read_lines
-#' 
 #' @export
 get_rankings <- function(gender = c("men", "women")){
   
@@ -11,9 +8,9 @@ get_rankings <- function(gender = c("men", "women")){
     url <- "https://cmsapi.pulselive.com/rugby/rankings/wru?language=en&client=pulse"
   }
   
-  txt <- readr::read_lines(url)
-  json <- jsonlite::fromJSON(txt)
-  result <- tibble::tibble(
+  txt <- read_lines(url)
+  json <- fromJSON(txt)
+  result <- tibble(
     team = json$entries$team$name,
     team_abbr = json$entries$team$abbreviation,
     points = json$entries$pts,

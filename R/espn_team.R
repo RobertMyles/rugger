@@ -1,16 +1,3 @@
-#' @importFrom tibble tibble
-#' @importFrom tibble as_tibble
-#' @importFrom xml2 read_html
-#' @importFrom rvest html_node
-#' @importFrom rvest html_table
-#' @importFrom dplyr rename
-#' @importFrom dplyr select
-#' @importFrom dplyr mutate_at
-#' @importFrom dplyr filter
-#' @importFrom dplyr pull
-#' @importFrom tidyr separate
-#' @importFrom stringr str_to_lower
-#' @importFrom glue glue
 #' @title Get Match Data for Rugby Teams
 #' @description Download data from ESPN's statsguru service. Data includes information
 #' on various teams, win ratios, points scored etc.
@@ -24,7 +11,7 @@
 #' @export 
 get_team_records <- function(country = NULL, opposition = NULL,
                              all = TRUE, type = c("team", "player")){
-  
+  message("Data courtesy of ESPN, http://stats.espnscrum.com/statsguru/rugby/\n")
   url <- "http://stats.espnscrum.com/statsguru/rugby/stats/index.html?class=1;"
   tp <- match.arg(type, choices = c("team", "player"))
   
